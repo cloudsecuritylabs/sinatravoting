@@ -1,0 +1,34 @@
+    <p>What's for dinner?</p>
+
+
+        <table class="table">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+        </tr>
+        <% Choices.each do |key, value| %>
+        <tr>
+            <td><%= key %></td>
+            <td><%= value %></td>
+        </tr>
+            <% end %>
+        </table>
+
+ </br> </br> </br>
+
+    <form action='cast' method='post'>
+      <ul class='unstyled'>
+
+
+        <% Choices.each do |id, text| %>
+          <li>
+            <label class='radio'>
+              <input type='radio' name='vote' value='<%= id %>' id='vote_<%= id %>' />
+              <%= text %>
+            </label>
+          </li>
+        <% end %>
+
+      </ul>
+      <button type='submit' class='btn btn-primary'>Cast this vote!</button>
+    </form>
